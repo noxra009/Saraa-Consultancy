@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saraa Consultancy | Insurance, Loans, Tax & Travel</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #003366;
+            --accent: #f4a261;
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f9f9f9;
+            color: var(--dark);
+            line-height: 1.7;
+            font-weight: 400;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.3;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .logo span {
+            color: var(--accent);
+        }
+
+        .header-contact {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .ph-btn {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .ph-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .email-btn {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--accent);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            background: rgba(244, 162, 97, 0.1);
+            font-family: 'Inter', sans-serif;
+        }
+        .email-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .insta-btn {
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        .insta-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.85)),
+                        url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .cta-btn {
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(244, 162, 97, 0.4);
+            font-family: 'Inter', sans-serif;
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(244, 162, 97, 0.6);
+        }
+
+        .services-section, .more-section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-title h2 {
+            color: var(--primary);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .section-title .line {
+            width: 60px;
+            height: 5px;
+            background: var(--accent);
+            margin: 1.5rem auto;
+            border-radius: 3px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border-top: 6px solid var(--primary);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .icon-box {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            width: 80px;
+            height: 80px;
+            background: rgba(244, 162, 97, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .service-list {
+            list-style: none;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-list li {
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            color: #555;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .service-list li::before {
+            content: '\f058';
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+            top: 0.1rem;
+        }
+
+        .enquire-btn {
+            background: linear-gradient(135deg, var(--primary), #004488);
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            width: 100%;
+            margin-top: auto;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        .enquire-btn:hover {
+            background: linear-gradient(135deg, #002244, var(--primary));
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.3);
+        }
+
+        .more-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .more-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border-top: 6px solid var(--accent);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .more-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+        }
+
+        .more-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .more-icon {
+            font-size: 3.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .more-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .more-card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .commission-highlight {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border: 2px solid var(--accent);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .commission-highlight h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--primary), #002244);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .owner {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact p {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+
+        .footer-email {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+        .footer-email:hover {
+            text-decoration: underline;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            backdrop-filter: blur(5px);
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            animation: slideDown 0.4s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+        }
+
+        @keyframes slideDown {
+            from {transform: translateY(-50px) scale(0.9); opacity: 0;}
+            to {transform: translateY(0) scale(1); opacity: 1;}
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #999;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .close-btn:hover {
+            background: #f0f0f0;
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-content h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 1.6rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .selected-service-box {
+            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+            color: var(--primary);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            border: 2px solid #c7d2fe;
+            font-size: 1.1rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.3s;
+            line-height: 1.5;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.1);
+        }
+
+        .dropdown-group {
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+        .dropdown-group p {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .dropdown-group select {
+            background: white;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--accent), #e88e3a);
+            color: white;
+            border: none;
+            padding: 1rem;
+            width: 100%;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(244, 162, 97, 0.4);
+            font-family: 'Inter', sans-serif;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(244, 162, 97, 0.6);
+        }
+
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            color: #155724;
+            padding: 1.25rem;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .success-message i {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .hero { min-height: 45vh; }
+            .services-grid, .more-grid { grid-template-columns: 1fr; }
+            header {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            .services-section, .more-section { padding: 3rem 5%; }
+            .header-contact { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Saraa <span>Consultancy</span></div>
+        <div class="header-contact">
+            <a href="tel:+918770327118" class="ph-btn">
+                <i class="fas fa-phone"></i> +91 8770327118
+            </a>
+            <a href="mailto:arupsinha@zohomail.in" class="email-btn">
+                <i class="fas fa-envelope"></i> Email Us
+            </a>
+            <a href="https://instagram.com/SaraaConsultancy" target="_blank" class="insta-btn">
+                <i class="fab fa-instagram"></i> SaraaConsultancy
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>One Stop Solution for All Your Needs</h1>
+        <p>Insurance, Loans, Legal Documents, Registration & Travel Services</p>
+        <button class="cta-btn" id="heroBtn">Get Free Quote</button>
+    </section>
+
+    <section class="services-section">
+        <div class="section-title">
+            <h2>Our Core Services</h2>
+            <p>Complete financial and legal solutions under one roof</p>
+            <div class="line"></div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card" data-service="Insurance">
+                <div class="icon-box"><i class="fas fa-shield-heart"></i></div>
+                <h3>Insurance</h3>
+                <ul class="service-list">
+                    <li>Health Insurance</li>
+                    <li>Life Insurance</li>
+                    <li>Motor Insurance</li>
+                    <li>Home Insurance</li>
+                    <li>Fire & Burglary</li>
+                </ul>
+                <button class="enquire-btn" id="insBtn">Enquire Now</button>
+            </div>
+
+            <div class="service-card" data-service="Loans">
+                <div class="icon-box"><i class="fas fa-hand-holding-dollar"></i></div>
+                <h3>Loans</h3>
+                <ul class="service-list">
+                    <li>Personal Loans</li>
+                    <li>Business Loans</li>
+                    <li>Home Loans</li>
+                    <li>LAP (Loan Against Property)</li>
+                    <li>Mudra Loan</li>
+                    <li>PMEGP Loan</li>
+                    <li>MSME Loan</li>
+                </ul>
+                <button class="enquire-btn" id="loanBtn">Enquire Now</button>
+            </div>
+
+            <div class="service-card" data-service="Legal">
+                <div class="icon-box"><i class="fas fa-building"></i></div>
+                <h3>Legal & Registration</h3>
+                <ul class="service-list">
+                    <li>PAN Card</li>
+                    <li>Income Tax Return (ITR)</li>
+                    <li>GST Registration & Return</li>
+                    <li>Food Licence</li>
+                    <li>Trade Licence</li>
+                    <li>Export Licence</li>
+                    <li>Company & NGO Registration</li>
+                </ul>
+                <button class="enquire-btn" id="legalBtn">Enquire Now</button>
+            </div>
+
+            <div class="service-card" data-service="Travel">
+                <div class="icon-box"><i class="fas fa-plane-departure"></i></div>
+                <h3>Travel & Tickets</h3>
+                <ul class="service-list">
+                    <li>International Air Tickets</li>
+                    <li>Domestic Air Tickets</li>
+                    <li>Holiday Packages</li>
+                </ul>
+                <button class="enquire-btn" id="travelBtn">Enquire Now</button>
+            </div>
+
+            <div class="service-card" data-service="Project">
+                <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                <h3>Project Reports</h3>
+                <ul class="service-list">
+                    <li>Project Reports</li>
+                    <li>Business Consultancy</li>
+                </ul>
+                <button class="enquire-btn" id="projectBtn">Enquire Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="more-section" style="background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);">
+        <div class="section-title">
+            <h2>More Services & Partnership</h2>
+            <p>Discover our complete range of services and partnership opportunities</p>
+            <div class="line"></div>
+        </div>
+
+        <div class="more-grid">
+            <div class="more-card">
+                <div class="more-icon">
+                    <i class="fas fa-list-check"></i>
+                </div>
+                <h3>Complete Business Solutions</h3>
+                <p>We offer 100+ services including Company Registration, ISO Certification, FSSAI License, PF/ESI Compliance, Trademark Registration, and much more. Contact us to know our complete service list from the PDF catalog.</p>
+                <button class="enquire-btn" id="moreServicesBtn">View All Services</button>
+            </div>
+
+            <div class="more-card">
+                <div class="more-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Commission Partnership</h3>
+                <div class="commission-highlight">
+                    <h4><i class="fas fa-trophy"></i> Earn Commission Per Client</h4>
+                    <p><strong>Bring clients → We close deals → You get paid!</strong></p>
+                </div>
+                <p>Partner with us and earn attractive commissions on every successful client you refer. Insurance, Loans, Registrations - all services included.</p>
+                <button class="enquire-btn" id="partnerBtn">Become Partner</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p class="owner">Saraa Consultancy</p>
+            <div class="footer-contact">
+                <p>Owner: Arsh</p>
+                <p><i class="fas fa-phone"></i> +91 8770327118</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:arupsinha@zohomail.in" class="footer-email">arupsinha@zohomail.in</a></p>
+            </div>
+            <p>&copy; 2026 Saraa Consultancy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Form -->
+    <div class="modal-overlay" id="quoteModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2>Get Your Free Quote</h2>
+            <div class="selected-service-box" id="serviceHeader">Please select a service</div>
+
+            <form id="enquiryForm">
+                <div class="form-group">
+                    <label>Your Name *</label>
+                    <input type="text" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number *</label>
+                    <input type="tel" name="phone" placeholder="Enter your mobile number" required>
+                </div>
+                <div class="form-group">
+                    <label>Email (Optional)</label>
+                    <input type="email" name="email" placeholder="Enter your email address">
+                </div>
+                <div class="form-group">
+                    <label>Message (Optional)</label>
+                    <textarea name="message" rows="3" placeholder="Tell us more about your requirements..."></textarea>
+                </div>
+
+                <!-- INSURANCE DROPDOWN -->
+                <div class="dropdown-group" id="dropdownInsurance">
+                    <p>Select Insurance Type:</p>
+                    <select name="service_type" required>
+                        <option value="Health Insurance">Health Insurance</option>
+                        <option value="Life Insurance">Life Insurance</option>
+                        <option value="Motor Insurance">Motor Insurance</option>
+                        <option value="Home Insurance">Home Insurance</option>
+                        <option value="Fire & Burglary">Fire & Burglary</option>
+                    </select>
+                </div>
+
+                <!-- LOANS DROPDOWN -->
+                <div class="dropdown-group" id="dropdownLoans">
+                    <p>Select Loan Type:</p>
+                    <select name="service_type" required>
+                        <option value="Personal Loan">Personal Loan</option>
+                        <option value="Business Loan">Business Loan</option>
+                        <option value="Home Loan">Home Loan</option>
+                        <option value="LAP (Loan Against Property)">LAP (Loan Against Property)</option>
+                        <option value="Mudra Loan">Mudra Loan</option>
+                        <option value="PMEGP Loan">PMEGP Loan</option>
+                        <option value="MSME Loan">MSME Loan</option>
+                    </select>
+                </div>
+
+                <!-- LEGAL DROPDOWN -->
+                <div class="dropdown-group" id="dropdownLegal">
+                    <p>Select Service Type:</p>
+                    <select name="service_type" required>
+                        <option value="PAN Card">PAN Card</option>
+                        <option value="Income Tax Return (ITR)">Income Tax Return (ITR)</option>
+                        <option value="GST Registration & Return">GST Registration & Return</option>
+                        <option value="Food Licence">Food Licence</option>
+                        <option value="Trade Licence">Trade Licence</option>
+                        <option value="Export Licence">Export Licence</option>
+                        <option value="Company & NGO Registration">Company & NGO Registration</option>
+                    </select>
+                </div>
+
+                <!-- TRAVEL DROPDOWN -->
+                <div class="dropdown-group" id="dropdownTravel">
+                    <p>Select Travel Type:</p>
+                    <select name="service_type" required>
+                        <option value="International Air Tickets">International Air Tickets</option>
+                        <option value="Domestic Air Tickets">Domestic Air Tickets</option>
+                        <option value="Holiday Packages">Holiday Packages</option>
+                    </select>
+                </div>
+
+                <!-- PROJECT DROPDOWN -->
+                <div class="dropdown-group" id="dropdownProject">
+                    <p>Select Service Type:</p>
+                    <select name="service_type" required>
+                        <option value="Project Reports">Project Reports</option>
+                        <option value="Business Consultancy">Business Consultancy</option>
+                    </select>
+                </div>
+
+                <!-- MORE SERVICES DROPDOWN -->
+                <div class="dropdown-group" id="dropdownMoreServices">
+                    <p>Select Service Category:</p>
+                    <select name="service_type" required>
+                        <option value="Company Registration">Company Registration</option>
+                        <option value="ISO Certification">ISO Certification</option>
+                        <option value="FSSAI License">FSSAI License</option>
+                        <option value="PF/ESI Compliance">PF/ESI Compliance</option>
+                        <option value="Trademark Registration">Trademark Registration</option>
+                        <option value="Complete Service List">Complete Service List (PDF)</option>
+                    </select>
+                </div>
+
+                <!-- PARTNERSHIP DROPDOWN -->
+                <div class="dropdown-group" id="dropdownPartner">
+                    <p>Partnership Interest:</p>
+                    <select name="service_type" required>
+                        <option value="Commission Partnership">Commission Partnership</option>
+                        <option value="Insurance Partnership">Insurance Partnership</option>
+                        <option value="Loan Partnership">Loan Partnership</option>
+                        <option value="Registration Partnership">Registration Partnership</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Enquiry to arupsinha@zohomail.in
+                </button>
+                <div class="success-message" id="successMsg">
+                    <i class="fas fa-check-circle"></i>
+                    Thank you! Email sent to arupsinha@zohomail.in. We will contact you within 24 hours.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const serviceButtons = {
+            'heroBtn': 'General Enquiry',
+            'insBtn': 'Insurance',
+            'loanBtn': 'Loans',
+            'legalBtn': 'Legal & Registration',
+            'travelBtn': 'Travel & Tickets',
+            'projectBtn': 'Project Reports',
+            'moreServicesBtn': 'More Services',
+            'partnerBtn': 'Commission Partnership'
+        };
+
+        const modal = document.getElementById('quoteModal');
+        const closeBtn = document.getElementById('closeModal');
+        const form = document.getElementById('enquiryForm');
+        const serviceHeader = document.getElementById('serviceHeader');
+        const successMsg = document.getElementById('successMsg');
+
+        function openModal(serviceName) {
+            modal.style.display = 'flex';
+            serviceHeader.textContent = serviceName;
+            document.body.style.overflow = 'hidden';
+
+            document.querySelectorAll('.dropdown-group').forEach(group => {
+                group.style.display = 'none';
+            });
+
+            let dropdownGroupId;
+            if (serviceName === 'More Services') {
+                dropdownGroupId = 'dropdownMoreServices';
+            } else if (serviceName === 'Commission Partnership') {
+                dropdownGroupId = 'dropdownPartner';
+            } else {
+                dropdownGroupId = 'dropdown' + serviceName.replace(/[^a-zA-Z]/g, '');
+            }
+
+            const dropdownGroup = document.getElementById(dropdownGroupId);
+            if (dropdownGroup) {
+                dropdownGroup.style.display = 'block';
+            }
+
+            form.reset();
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            successMsg.style.display = 'none';
+        }
+
+        Object.keys(serviceButtons).forEach(btnId => {
+            const btn = document.getElementById(btnId);
+            if (btn) {
+                btn.addEventListener('click', () => openModal(serviceButtons[btnId]));
+            }
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const serviceType = form.querySelector('select[name="service_type"]')?.value || serviceHeader.textContent;
+
+            const subject = `New Enquiry: ${serviceHeader.textContent} - ${serviceType}`;
+            const body = `Service: ${serviceHeader.textContent}\nType: ${serviceType}\nName: ${formData.get('name')}\nPhone: ${formData.get('phone')}\nEmail: ${formData.get('email') || 'Not provided'}\nMessage: ${formData.get('message') || 'No additional message'}`;
+
+            const mailtoLink = `mailto:arupsinha@zohomail.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+
+            form.style.display = 'none';
+            successMsg.style.display = 'block';
+
+            setTimeout(() => {
+                form.reset();
+                form.style.display = 'block';
+                successMsg.style.display = 'none';
+                closeModal();
+            }, 4000);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+</html>
