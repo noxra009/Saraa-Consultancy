@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YG5S0BHK55"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YG5S0BHK55');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YG5S0BHK55"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YG5S0BHK55');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <meta name="google-site-verification" content="google0d421abf42a17021" />
 
     <title>Saraa Consultancy | Total Financial & Business Portal India</title>
@@ -71,6 +68,14 @@
         .partner-box { background: linear-gradient(135deg, #003366, #00509d); color: white; }
         .review-box { background: white; border: 2px solid #eee; color: var(--dark); }
         .badge { display: inline-block; background: var(--accent); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; margin-bottom: 10px; }
+
+        /* Profile Section Styles */
+        .profile-section { background: white; border-radius: 40px; margin: 4rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center; padding: 3rem; box-shadow: 0 15px 50px rgba(0,0,0,0.05); }
+        .profile-photo-container { text-align: center; }
+        .profile-photo { width: 250px; height: 250px; border-radius: 50%; object-fit: cover; border: 8px solid #f1f5f9; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .clock-container { background: var(--primary); color: white; padding: 2.5rem; border-radius: 30px; text-align: center; position: relative; overflow: hidden; }
+        #liveDate { font-size: 1.1rem; opacity: 0.9; margin-bottom: 10px; font-weight: 500; }
+        #liveTime { font-size: 3rem; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
 
         /* Modal */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 20px; backdrop-filter: blur(5px); }
@@ -224,6 +229,22 @@
         </div>
     </section>
 
+    <section>
+        <div class="profile-section">
+            <div class="profile-photo-container">
+                <img src="3eca7af3-bd38-46d3-8f42-f030ee028640.jpeg" alt="Arup Sinha" class="profile-photo">
+                <h2 style="margin-top: 20px; color: var(--primary);">Arup Sinha</h2>
+                <p style="font-weight: 600; color: var(--accent);">Chief Consultant & Founder</p>
+            </div>
+            <div class="clock-container">
+                <i class="fas fa-clock" style="font-size: 2rem; margin-bottom: 15px; color: var(--accent);"></i>
+                <div id="liveDate">Loading Date...</div>
+                <div id="liveTime">00:00:00</div>
+                <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.7;">Working for your financial growth 24/7</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <h2>Saraa Consultancy</h2>
         <div class="footer-socials">
@@ -260,6 +281,15 @@
         };
 
         let cCat = "", cMode = "SIP";
+
+        function updateClock() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('liveDate').innerText = now.toLocaleDateString('en-IN', dateOptions);
+            document.getElementById('liveTime').innerText = now.toLocaleTimeString('en-IN', { hour12: true });
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
 
         function switchCalc(m) {
             cMode = m;
@@ -303,7 +333,7 @@
             const n = document.getElementById('uName').value;
             const s = document.getElementById('subS').value;
             if(!n) return alert("Please enter your name");
-            const msg = `*SARAA CONSULTANCY*\n*Category:* ${cCat}\n*Requirement:* ${s}\n*Client:* ${n}\n\nHi Arsh, I'm interested in this service.`;
+            const msg = `*SARAA CONSULTANCY*\n*Category:* ${cCat}\n*Requirement:* ${s}\n*Client:* ${n}\n\nHi Arup, I'm interested in this service.`;
             window.open(`https://wa.me/918770327118?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
